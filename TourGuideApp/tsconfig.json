@@ -1,4 +1,9 @@
 {
-  "compilerOptions": {},
+  "compilerOptions": {
+    "jsx": "react",
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node"
+  },
   "extends": "expo/tsconfig.base"
 }

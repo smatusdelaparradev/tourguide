@@ -23,7 +23,7 @@ const MainTabNavigator = () => {
           } else if (route.name === 'Community') {
             iconName = 'people';
           }
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName as any} size={size} color={color} />;
         },
       })}
     >
