@@ -1,4 +1,4 @@
-import { OnboardingQuestion } from '../../types/entities/OnboardingQuestion';
+import { OnboardingQuestion } from '../../../types/entities/OnboardingQuestion';
 
 const onboardingQuestions: OnboardingQuestion[] = [
   {
