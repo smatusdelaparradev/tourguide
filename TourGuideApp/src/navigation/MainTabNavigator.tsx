@@ -1,9 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/Home/HomeScreen';
+import Itinerary from '../screens/Itinerary/ItineraryScreen';
 import GuideMenuScreen from '../screens/TourGuide/TourGuideScreen';
 import CommunityScreen from '../screens/Community/CommunityScreen';
-import { Ionicons } from '@expo/vector-icons'; // Ejemplo de iconos
 
 const Tab = createBottomTabNavigator();
 
@@ -17,8 +18,10 @@ const MainTabNavigator = () => {
         tabBarIcon: ({ color, size }) => {
           let iconName: string = 'home';
           if (route.name === 'Home') {
+            iconName = 'home';
+          } else if (route.name === 'Itinerary') {
             iconName = 'airplane';
-          } else if (route.name === 'Guide') {
+          }else if (route.name === 'Guide') {
             iconName = 'information-circle';
           } else if (route.name === 'Community') {
             iconName = 'people';
@@ -28,6 +31,7 @@ const MainTabNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Itinerary" component={Itinerary} />
       <Tab.Screen name="Guide" component={GuideMenuScreen} />
       <Tab.Screen name="Community" component={CommunityScreen} />
     </Tab.Navigator>
