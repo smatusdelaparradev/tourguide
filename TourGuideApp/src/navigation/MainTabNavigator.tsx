@@ -4,7 +4,6 @@ import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/Home/HomeScreen';
 import Itinerary from '../screens/Itinerary/ItineraryScreen';
 import GuideMenuScreen from '../screens/TourGuide/TourGuideScreen';
-import CommunityScreen from '../screens/Community/CommunityScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,21 +18,38 @@ const MainTabNavigator = () => {
           let iconName: string = 'home';
           if (route.name === 'Home') {
             iconName = 'home';
-          } else if (route.name === 'Itinerary') {
+          } else if (route.name === 'Itinerario') {
             iconName = 'airplane';
-          }else if (route.name === 'Guide') {
+          } else if (route.name === 'Guía') {
             iconName = 'information-circle';
-          } else if (route.name === 'Community') {
-            iconName = 'people';
           }
           return <Ionicons name={iconName as any} size={size} color={color} />;
         },
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Itinerary" component={Itinerary} />
-      <Tab.Screen name="Guide" component={GuideMenuScreen} />
-      <Tab.Screen name="Community" component={CommunityScreen} />
+      <Tab.Screen name="Itinerario" component={Itinerary} />
+      <Tab.Screen name="Guía" component={GuideMenuScreen} />
+      <Tab.Screen
+        name="Comunidad"
+        component={() => null}
+        listeners={{
+          tabPress: (e: any) => {
+            e.preventDefault();
+          },
+        }}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="people" size={size} color="#D3D3D3" />
+          ),
+          tabBarLabelStyle: {
+            color: '#D3D3D3',
+          },
+          tabBarStyle: {
+            opacity: 0.5,
+          },
+        }}
+      />
     </Tab.Navigator>
   );
 };
