@@ -4,13 +4,13 @@ import { styled } from '../../theme/styled';
 import Input from '../../components/Input/Input';
 import Button from '../../components/Button/Button';
 import useAIItinerary from '../../hooks/useAIItinerary';
+import SearchPlacesInput from '../../components/SearchPlacesInput/SearchPlacesInput';
 
 const Container = styled(View)`
   flex: 1;
   padding: ${({ theme }) => theme.spacing.md}px;
   background-color: ${({ theme }) => theme.colors.background};
-  justify-content: center;
-`;
+  justify-content: flex-start;`;
 
 const Title = styled(Text)`
   font-size: 24px;
@@ -28,18 +28,18 @@ const ItineraryScreen = () => {
     getItinerary(destination, dates);
   };
 
+  const handleDestinationSelect = (selectedDestination) => {
+    setDestination(selectedDestination);
+  };
+
   return (
     <KeyboardAvoidingView style={{flex:1}} behavior='padding'>
       <Container>
-        <Title>Planifica tu Viaje</Title>
+        <Title>Planifica tu viaje</Title>
+        <SearchPlacesInput onSelectDestination={handleDestinationSelect}/>
+
         <Input 
-          label="Destino" 
-          placeholder="Ej: Bali, París, Cancún" 
-          value={destination} 
-          onChangeText={setDestination}
-        />
-        <Input 
-          label="Fechas" 
+          label="Fechassss" 
           placeholder="Ej: 10/02/2024 - 17/02/2024" 
           value={dates} 
           onChangeText={setDates}

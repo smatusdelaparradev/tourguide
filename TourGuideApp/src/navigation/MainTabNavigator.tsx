@@ -2,8 +2,8 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 import HomeScreen from '../screens/Home/HomeScreen';
-import Itinerary from '../screens/Itinerary/ItineraryScreen';
 import GuideMenuScreen from '../screens/TourGuide/TourGuideScreen';
+import ItineraryScreen from '../screens/Itinerary/ItineraryScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,7 +28,7 @@ const MainTabNavigator = () => {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Itinerario" component={Itinerary} />
+      <Tab.Screen name="Itinerario" component={ItineraryScreen} />
       <Tab.Screen name="Guía" component={GuideMenuScreen} />
       <Tab.Screen
         name="Comunidad"
